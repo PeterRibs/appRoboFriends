@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { setSearchField } from '../actions';
+
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
+
 import './App.css';
 
-import { setSearchField } from '../actions';
+
 
 const mapStateToProps = state => {
     return {
@@ -30,7 +33,7 @@ class App extends Component (){
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response=> response.json())
-            .then(users => {this.setState({ robots: users })});
+            .then(users => { this.setState({ robots: users }) });
     }
 
     render(){
